@@ -1,0 +1,19 @@
+[project]
+name = "p1"
+version = "0.1.0"
+description = "Engineering AI Systems, Project 1 starter code"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.5", "certifi"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["p1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
