@@ -11,7 +11,7 @@ How a request is answered (every box is a declared @step):
     check_card             CODE   settles everything that is a number or a tag on the card
         |   (a game the card already rules out is not sent to the model)
         v
-    judge_description      MODEL  reads ONE game's description and rates the game: good, mixed, poor or not mentioned
+    rate_description      MODEL  reads ONE game's description and rates the game: good, mixed, poor or not mentioned
         |
         v
     choose_game            CODE   returns the first game rated good, else the first rated mixed, else declines
@@ -402,6 +402,9 @@ class Verdict(BaseModel):
 
 class DescriptionCheckInput(BaseModel):
     requirements: Requirements
+    request_text: str = Field(
+        "", description="The person's own words, for details the checklist could not capture"
+    )
     candidate: Candidate
     passed: list[str] = Field(
         default_factory=list, description="What the code already confirmed on the card"
@@ -432,6 +435,12 @@ rating is exactly one of these four, judged from the numbered points above:
 - poor: at least one point clearly fails, because the description directly shows the problem. A suggestion or an impression is not enough for poor.
 If several apply, use the worst one, in this order: poor, not mentioned, mixed, good."""
 
+REQUEST_BLOCK = """The person's own words:
+"{text}"
+This is the one exception to judging only the numbered points: use these words to catch a detail the numbered points do not cover. Wishes ("would be nice", "would be amazing", "we'd love") are not requirements and never lower the rating. If the description clearly goes against something the person asked for that the numbered points do not cover, rate the game mixed. This can lower good to mixed, but on its own it never makes a game poor or not mentioned.
+
+"""
+
 JUDGE_PROMPT = """Decide whether this ONE board game meets a request. The card was already checked by the code, and these points PASS, so do not check them again:
 {passed}
 
@@ -440,7 +449,7 @@ Read the description for these points. Say the game fails only if the descriptio
 
 Judge ONLY the numbered points above. Anything else in the description (a theme, war, violence, horror, how complicated the game sounds) is not a requirement, so it must not lower the rating. If no point fails, the game meets the request. Use only the description, never outside knowledge.
 
-{answer_format}
+{request_block}{answer_format}
 
 Game:
 {game}"""
@@ -474,13 +483,16 @@ def build_judge_prompt(inp: DescriptionCheckInput) -> str:
     return JUDGE_PROMPT.format(
         passed=passed,
         questions=questions,
+        request_block=REQUEST_BLOCK.format(text=inp.request_text.strip())
+        if inp.request_text.strip()
+        else "",
         answer_format=VERDICT_FORMAT,
         game=describe_game(inp.candidate),
     )
 
 
 @step
-def judge_description(inp: DescriptionCheckInput) -> Verdict:
+def rate_description(inp: DescriptionCheckInput) -> Verdict:
     try:
         return ask_model(build_judge_prompt(inp), Verdict)
     except ValidationError:
@@ -531,9 +543,10 @@ def answer(request: Request) -> Answer:
         elif not card.to_read:  # the card confirms everything: nothing left for the model to read
             verdict = Verdict(rating="good", explanation=" ".join(card.passed) or "No requirement to check.")
         else:
-            verdict = judge_description(
+            verdict = rate_description(
                 DescriptionCheckInput(
                     requirements=requirements,
+                    request_text=request.request,
                     candidate=game,
                     passed=card.passed,
                     to_read=card.to_read,
