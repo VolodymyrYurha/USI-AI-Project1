@@ -11,10 +11,10 @@ How a request is answered (every box is a declared @step):
     check_card             CODE   settles everything that is a number or a tag on the card
         |   (a game the card already rules out is not sent to the model)
         v
-    judge_description      MODEL  reads ONE game's description and answers the points the card cannot settle
+    judge_description      MODEL  reads ONE game's description and rates the game: good, mixed, poor or not mentioned
         |
         v
-    choose_game            CODE   picks the surviving game with the highest percentage, or declines
+    choose_game            CODE   returns the first game rated good, else the first rated mixed, else declines
 
 Model calls per request: 1 (+1 retry) to extract the requirements, plus at most 5 to judge descriptions.
 That is at most 7, under the limit of 10.
@@ -23,7 +23,7 @@ That is at most 7, under the limit of 10.
 import re
 from typing import Callable, Literal, Optional
 
-from pydantic import BaseModel, Field, ValidationError
+from pydantic import BaseModel, Field, ValidationError, field_validator
 
 from p1 import Answer, Request, call, parse_json, step
 from p1.types import Candidate
@@ -351,9 +351,9 @@ def check_complexity(
         if not 2.0 <= weight <= 3.5:
             return f"Complexity: weight {weight:.2f} is outside the medium range."
         result.passed.append(f"Complexity: the card says medium (weight {weight:.2f}).")
-        result.to_read.append(
-            "medium"
-        )  # the description may still say the rules are easy or complex
+        # The description is not sent to the model for this point. On 50 requests all 8 games with only this
+        # point open were acceptable, and the model failed 4 of them by guessing "complex rules" from a theme.
+        # To bring the check back, add: result.to_read.append("medium")
     return None
 
 
@@ -385,15 +385,19 @@ def check_card(inp: CardCheckInput) -> CardCheck:
 
 
 class Verdict(BaseModel):
-    """The same format for every judge call."""
+    """The same format for every judge call: how well ONE game fits, in one of four words."""
 
-    pick: Optional[Literal["A", "B", "C", "D", "E"]] = Field(
-        description="This candidate's letter if it meets every requirement, else null"
-    )
-    percentage: int = Field(
-        ge=0, le=100, description="How sure that it meets every requirement, 0 to 100"
+    rating: Literal["good", "mixed", "poor", "not mentioned"] = Field(
+        description="good: every point confirmed. mixed: nothing fails, but a point is only implied. "
+        "poor: a point clearly fails. not mentioned: the description says nothing about a point."
     )
     explanation: str
+
+    @field_validator("rating", mode="before")
+    @classmethod
+    def tidy_rating(cls, value):
+        """Accept 'Good', 'not_mentioned', ' Poor ' and so on."""
+        return value.strip().lower().replace("_", " ") if isinstance(value, str) else value
 
 
 class DescriptionCheckInput(BaseModel):
@@ -420,10 +424,13 @@ DESCRIPTION_QUESTIONS = {
 }
 
 VERDICT_FORMAT = """Answer with JSON only, with exactly these keys:
-{"pick": "{LETTER}", "percentage": <number 0 to 100>, "explanation": "<one or two sentences>"}
-or, if the description makes the game fail:
-{"pick": null, "percentage": <number 0 to 100>, "explanation": "<what fails>"}
-pick is "{LETTER}" (this game's letter) if the game meets the request, otherwise null (no quotes). percentage is how sure you are that it meets the request, from 0 to 100."""
+{"rating": "<good, mixed, not mentioned or poor>", "explanation": "<one or two sentences>"}
+rating is exactly one of these four, judged from the numbered points above:
+- good: every point is satisfied. A point that asks whether a problem is present (fighting, violence, horror, a timer, a player knocked out) is satisfied when the description does not show that problem. Saying nothing about it is fine.
+- mixed: nothing clearly fails and nothing needed is missing, but at least one point is only implied or suggested
+- not mentioned: a point needs something to be stated (a number of players, a play time, an age, easy or complex rules) and the description does not state it
+- poor: at least one point clearly fails, because the description directly shows the problem. A suggestion or an impression is not enough for poor.
+If several apply, use the worst one, in this order: poor, not mentioned, mixed, good."""
 
 JUDGE_PROMPT = """Decide whether this ONE board game meets a request. The card was already checked by the code, and these points PASS, so do not check them again:
 {passed}
@@ -431,7 +438,7 @@ JUDGE_PROMPT = """Decide whether this ONE board game meets a request. The card w
 Read the description for these points. Say the game fails only if the description clearly shows it fails a point; where a point asks for something to be stated, the game fails if it is not stated:
 {questions}
 
-If no point fails, the game meets the request. Use only the description, never outside knowledge.
+Judge ONLY the numbered points above. Anything else in the description (a theme, war, violence, horror, how complicated the game sounds) is not a requirement, so it must not lower the rating. If no point fails, the game meets the request. Use only the description, never outside knowledge.
 
 {answer_format}
 
@@ -467,7 +474,7 @@ def build_judge_prompt(inp: DescriptionCheckInput) -> str:
     return JUDGE_PROMPT.format(
         passed=passed,
         questions=questions,
-        answer_format=VERDICT_FORMAT.replace("{LETTER}", inp.candidate.id),
+        answer_format=VERDICT_FORMAT,
         game=describe_game(inp.candidate),
     )
 
@@ -478,9 +485,7 @@ def judge_description(inp: DescriptionCheckInput) -> Verdict:
         return ask_model(build_judge_prompt(inp), Verdict)
     except ValidationError:
         # No retry: the calls for the requirements and the five judges already use most of the limit.
-        return Verdict(
-            pick=None, percentage=0, explanation="The model's reply could not be read."
-        )
+        return Verdict(rating="poor", explanation="The model's reply could not be read.")
 
 
 # =====================================================================================================
@@ -497,24 +502,17 @@ class AllVerdicts(BaseModel):
     candidates: list[CandidateVerdict]
 
 
+# best first. A game rated "poor" or "not mentioned" is never recommended.
+RATING_ORDER = {"good": 0, "mixed": 1, "not mentioned": 2, "poor": 3}
+
+
 @step
 def choose_game(all_verdicts: AllVerdicts) -> Answer:
-    """Of the games that meet the request, pick the one with the highest percentage (the first one on a tie).
-    If none meets it, decline."""
-    meeting = [
-        item for item in all_verdicts.candidates if item.verdict.pick is not None
-    ]
-    if not meeting:
-        closest = max(all_verdicts.candidates, key=lambda item: item.verdict.percentage)
-        return Answer(
-            pick=None,
-            explanation=f"No game meets every requirement. {closest.verdict.explanation}",
-        )
-    best = max(meeting, key=lambda item: item.verdict.percentage)
-    return Answer(
-        pick=best.candidate_id,
-        explanation=f"{best.verdict.percentage}%: {best.verdict.explanation}",
-    )
+    """Return the first game rated good; if there is none, the first rated mixed; otherwise decline."""
+    best = min(all_verdicts.candidates, key=lambda item: RATING_ORDER[item.verdict.rating])  # first one on a tie
+    if best.verdict.rating in ("good", "mixed"):
+        return Answer(pick=best.candidate_id, explanation=f"{best.verdict.rating}: {best.verdict.explanation}")
+    return Answer(pick=None, explanation=f"No game is a good or mixed fit. {best.verdict.explanation}")
 
 
 # =====================================================================================================
@@ -529,7 +527,9 @@ def answer(request: Request) -> Answer:
     for game in request.candidates:
         card = check_card(CardCheckInput(requirements=requirements, candidate=game))
         if card.failure:  # the card alone rules the game out: no model call
-            verdict = Verdict(pick=None, percentage=0, explanation=card.failure)
+            verdict = Verdict(rating="poor", explanation=card.failure)
+        elif not card.to_read:  # the card confirms everything: nothing left for the model to read
+            verdict = Verdict(rating="good", explanation=" ".join(card.passed) or "No requirement to check.")
         else:
             verdict = judge_description(
                 DescriptionCheckInput(
