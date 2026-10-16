@@ -1,0 +1,150 @@
+{"id": "P001", "pick": "B", "explanation": "good: 4 players fit the card's range 2 to 5. Longest play time 20 minutes is within 60. Complexity: light (weight 1.09)."}
+{"id": "P002", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 4. It is cooperative."}
+{"id": "P003", "pick": "D", "explanation": "good: 6 players fit the card's range 3 to 8. Complexity: the card says medium (weight 2.52)."}
+{"id": "P004", "pick": "B", "explanation": "good: 6 players fit the card's range 2 to 10. Longest play time 30 minutes is within 90. It is competitive. Complexity: light (weight 1.13)."}
+{"id": "P005", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 4. Longest play time 120 minutes is within 120. Complexity: heavy (weight 3.82)."}
+{"id": "P006", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.00)."}
+{"id": "P007", "pick": null, "explanation": "No game is a good or mixed fit. Play time: the longest time is 75 minutes, over the limit of 60."}
+{"id": "P008", "pick": "B", "explanation": "good: 5 players fit the card's range 1 to 12. Longest play time 45 minutes is within 60. It is competitive. Complexity: the card says medium (weight 2.80)."}
+{"id": "P009", "pick": "C", "explanation": "good: 2 players fit the card's range 1 to 12. Longest play time 45 minutes is within 60. It is competitive. Complexity: the card says medium (weight 2.80)."}
+{"id": "P010", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 2 to 2, which does not include 4."}
+{"id": "P011", "pick": "A", "explanation": "good: 2 players fit the card's range 2 to 5. Longest play time 20 minutes is within 60."}
+{"id": "P012", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: not light (weight 2.67)."}
+{"id": "P013", "pick": "A", "explanation": "good: Longest play time 30 minutes is within 30. Complexity: light (weight 2.00)."}
+{"id": "P014", "pick": "C", "explanation": "good: 2 players fit the card's range 2 to 8. Longest play time 15 minutes is within 30. Complexity: light (weight 1.12)."}
+{"id": "P015", "pick": "A", "explanation": "good: All points are satisfied: the game is suitable for 1 player, has a playtime of 20 minutes, and is described as having light complexity. Additionally, there are no elements of horror or frightening themes in the description."}
+{"id": "P016", "pick": "C", "explanation": "good: 3 players fit the card's range 1 to 6. Complexity: the card says medium (weight 3.31)."}
+{"id": "P017", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 7. Longest play time 40 minutes is within 60."}
+{"id": "P018", "pick": null, "explanation": "No game is a good or mixed fit. The card lists no play time and the description states none."}
+{"id": "P019", "pick": "D", "explanation": "good: The game does not involve war, raiding, conquest, battles, or killing, and it aligns with the request for a deep strategic gameplay experience."}
+{"id": "P020", "pick": "A", "explanation": "good: 2 players fit the card's range 2 to 6. Longest play time 60 minutes is within 60. Complexity: light (weight 1.40)."}
+{"id": "P021", "pick": "C", "explanation": "good: 4 players fit the card's range 3 to 12. Complexity: light (weight 1.00)."}
+{"id": "P022", "pick": "D", "explanation": "mixed: While the game does not explicitly mention combat or attacking, the description includes a scoring variant that rewards bumping a lion out of the animals' way, which could imply some form of competitive interaction that may not align with the request for no combat."}
+{"id": "P023", "pick": "D", "explanation": "good: 4 players fit the card's range 1 to 4. Longest play time 120 minutes is within 180. It is competitive. Complexity: heavy (weight 3.75)."}
+{"id": "P024", "pick": "B", "explanation": "good: 3 players fit the card's range 2 to 4. Longest play time 20 minutes is within 45. Complexity: light (weight 1.06)."}
+{"id": "P025", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.00)."}
+{"id": "P026", "pick": "C", "explanation": "good: 4 players fit the card's range 2 to 4. Longest play time 30 minutes is within 30. Complexity: light (weight 1.97)."}
+{"id": "P027", "pick": "C", "explanation": "good: The game does not present any horror elements, and it fits the requirements for two players with light complexity."}
+{"id": "P028", "pick": "C", "explanation": "good: 3 players fit the card's range 2 to 6. Complexity: the card says medium (weight 2.44)."}
+{"id": "P029", "pick": "D", "explanation": "mixed: While the game is cooperative and fits the player range, the description mentions executing a plan against a crook and seeking revenge, which may imply a level of conflict that goes against the request for nothing violent."}
+{"id": "P030", "pick": null, "explanation": "No game is a good or mixed fit. The card lists no play time and the description states none."}
+{"id": "P031", "pick": "A", "explanation": "good: 2 players fit the card's range 1 to 5. It is cooperative."}
+{"id": "P032", "pick": "B", "explanation": "good: 4 players fit the card's range 4 to 9. Longest play time 30 minutes is within 90. Complexity: light (weight 1.09)."}
+{"id": "P033", "pick": "E", "explanation": "good: 3 players fit the card's range 2 to 4. It is competitive. Complexity: the card says medium (weight 2.95)."}
+{"id": "P034", "pick": "C", "explanation": "good: 4 players fit the card's range 2 to 5. Longest play time 45 minutes is within 60. It is competitive."}
+{"id": "P035", "pick": "A", "explanation": "good: 2 players fit the card's range 2 to 4. It is cooperative. Complexity: the card says medium (weight 2.65)."}
+{"id": "P036", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 4. Complexity: heavy (weight 4.07)."}
+{"id": "P037", "pick": "B", "explanation": "good: 4 players fit the card's range 4 to 7. Complexity: light (weight 1.75)."}
+{"id": "P038", "pick": "D", "explanation": "good: The game does not involve any combat or attacking, aligning with the request for no combat, and all other points are satisfied."}
+{"id": "P039", "pick": "D", "explanation": "good: 3 players fit the card's range 1 to 4. It is cooperative. Complexity: heavy (weight 3.66)."}
+{"id": "P040", "pick": null, "explanation": "No game is a good or mixed fit. The description indicates that players will take turns placing chisels to claim dinosaur fossils, which implies a competitive element that suggests players are battling for control over the fossils, thus failing the request for no combat."}
+{"id": "P041", "pick": "A", "explanation": "good: 8 players fit the card's range 3 to 8. Longest play time 60 minutes is within 90. Complexity: light (weight 1.35)."}
+{"id": "P042", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 4. Longest play time 30 minutes is within 40. Complexity: light (weight 1.11)."}
+{"id": "P043", "pick": "E", "explanation": "mixed: While the game does not explicitly mention any violent themes, the description includes competition and rivalry, which may imply conflict. Additionally, the player's request for a game with 'nothing violent' is not fully addressed."}
+{"id": "P044", "pick": "C", "explanation": "good: 3 players fit the card's range 2 to 4. Complexity: light (weight 1.50)."}
+{"id": "P045", "pick": "D", "explanation": "mixed: While the game does not state that players can be knocked out, it does not clearly indicate that all players remain active throughout the game, which leaves some ambiguity."}
+{"id": "P046", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 2 to 2, which does not include 4."}
+{"id": "P047", "pick": "D", "explanation": "good: 3 players fit the card's range 1 to 3. It is cooperative. Complexity: the card says medium (weight 2.81)."}
+{"id": "P048", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 2. Complexity: light (weight 1.20)."}
+{"id": "P049", "pick": "C", "explanation": "good: 2 players fit the card's range 1 to 5. It is cooperative."}
+{"id": "P050", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 2 to 6, which does not include 1."}
+{"id": "P051", "pick": "A", "explanation": "good: 4 players fit the card's range 2 to 5. Complexity: light (weight 1.04)."}
+{"id": "P052", "pick": "C", "explanation": "good: 6 players fit the card's range 2 to 6. Complexity: light (weight 1.08)."}
+{"id": "P053", "pick": "E", "explanation": "good: The game does not mention any elements of war, raiding, conquest, battles, or killing, and it focuses on space exploration and building factories, aligning with the player's request for a non-violent, strategic experience."}
+{"id": "P054", "pick": "C", "explanation": "good: 4 players fit the card's range 4 to 10. Longest play time 20 minutes is within 120."}
+{"id": "P055", "pick": "B", "explanation": "good: 3 players fit the card's range 2 to 8. It is competitive."}
+{"id": "P056", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 4 to 4, which does not include 2."}
+{"id": "P057", "pick": "E", "explanation": "good: 4 players fit the card's range 2 to 4. Longest play time 10 minutes is within 60."}
+{"id": "P058", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 2. Complexity: the card says medium (weight 3.04)."}
+{"id": "P059", "pick": "E", "explanation": "good: 3 players fit the card's range 3 to 6. Longest play time 90 minutes is within 90. Complexity: the card says medium (weight 3.10)."}
+{"id": "P060", "pick": "D", "explanation": "good: 2 players fit the card's range 2 to 4. Complexity: light (weight 1.05)."}
+{"id": "P061", "pick": "A", "explanation": "good: 2 players fit the card's range 2 to 6. Complexity: the card says medium (weight 2.81)."}
+{"id": "P062", "pick": "B", "explanation": "good: 4 players fit the card's range 1 to 4. Longest play time 90 minutes is within 120. Complexity: the card says medium (weight 2.33)."}
+{"id": "P063", "pick": "C", "explanation": "good: 2 players fit the card's range 2 to 2. Longest play time 15 minutes is within 60. Complexity: light (weight 1.00)."}
+{"id": "P064", "pick": "A", "explanation": "good: 4 players fit the card's range 2 to 5. It is competitive."}
+{"id": "P065", "pick": "C", "explanation": "good: 6 players fit the card's range 2 to 8. Longest play time 30 minutes is within 180. It is competitive. Complexity: light (weight 1.12)."}
+{"id": "P066", "pick": "E", "explanation": "good: 2 players fit the card's range 1 to 4. Longest play time 90 minutes is within 180. It is cooperative. Complexity: the card says medium (weight 2.00)."}
+{"id": "P067", "pick": "E", "explanation": "good: 6 players fit the card's range 2 to 8. Longest play time 60 minutes is within 60. Complexity: the card says medium (weight 2.50)."}
+{"id": "P068", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 3 to 4, which does not include 2."}
+{"id": "P069", "pick": "D", "explanation": "good: 2 players fit the card's range 1 to 7. Complexity: light (weight 1.22)."}
+{"id": "P070", "pick": "E", "explanation": "good: 4 players fit the card's range 1 to 4. Longest play time 120 minutes is within 180. It is competitive. Complexity: the card says medium (weight 3.00)."}
+{"id": "P071", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.26)."}
+{"id": "P072", "pick": null, "explanation": "No game is a good or mixed fit. Play time: the longest time is 180 minutes, over the limit of 60."}
+{"id": "P073", "pick": "C", "explanation": "good: 2 players fit the card's range 2 to 5. Longest play time 20 minutes is within 120."}
+{"id": "P074", "pick": "E", "explanation": "good: 4 players fit the card's range 1 to 4. It is competitive."}
+{"id": "P075", "pick": "D", "explanation": "good: 1 players fit the card's range 1 to 4. Complexity: heavy (weight 3.82)."}
+{"id": "P076", "pick": "E", "explanation": "good: 6 players fit the card's range 2 to 6. Longest play time 60 minutes is within 180. It is competitive. Complexity: the card says medium (weight 2.51)."}
+{"id": "P077", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 5. It is competitive."}
+{"id": "P078", "pick": "E", "explanation": "good: The game does not involve any combat or attacking, and it fits the requirements for player count and complexity."}
+{"id": "P079", "pick": "D", "explanation": "good: 5 players fit the card's range 2 to 8. Longest play time 120 minutes is within 120. Complexity: the card says medium (weight 2.67)."}
+{"id": "P080", "pick": "E", "explanation": "good: 8 players fit the card's range 2 to 15. Complexity: the card says medium (weight 3.18)."}
+{"id": "P081", "pick": "D", "explanation": "good: The game does not mention any elements of war, raiding, conquest, battles, or killing, thus satisfying the requirement."}
+{"id": "P082", "pick": "A", "explanation": "good: The game does not involve any combat or attacking, and it meets all the specified points."}
+{"id": "P083", "pick": "C", "explanation": "good: The game does not involve players' characters or creatures attacking, battling, or dueling, and it meets the requirements for player count and complexity."}
+{"id": "P084", "pick": "B", "explanation": "good: 3 players fit the card's range 3 to 5. Longest play time 30 minutes is within 60. Complexity: light (weight 1.73)."}
+{"id": "P085", "pick": "E", "explanation": "good: All points are satisfied: the game is cooperative, fits the player range, and has light complexity. The description does not present any horror elements."}
+{"id": "P086", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.29)."}
+{"id": "P087", "pick": "B", "explanation": "good: 4 players fit the card's range 4 to 10. Longest play time 60 minutes is within 90."}
+{"id": "P088", "pick": "A", "explanation": "good: The game does not involve attacking or battling other characters or creatures, and it meets all other specified criteria."}
+{"id": "P089", "pick": "A", "explanation": "good: 2 players fit the card's range 2 to 6. Longest play time 60 minutes is within 90. Complexity: the card says medium (weight 2.73)."}
+{"id": "P090", "pick": "C", "explanation": "good: 3 players fit the card's range 2 to 5. It is competitive."}
+{"id": "P091", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 5. Longest play time 20 minutes is within 120. Complexity: light (weight 1.23)."}
+{"id": "P092", "pick": "E", "explanation": "mixed: While the game does not explicitly mention combat, the presence of a 'military' domain and the phrase 'combat misfortune' suggest that there may be elements of conflict, which goes against the request for no combat."}
+{"id": "P093", "pick": "E", "explanation": "good: The game does not involve players' characters or creatures attacking or battling each other, satisfying the requirement for no combat."}
+{"id": "P094", "pick": "E", "explanation": "good: The game does not clearly involve war, raiding, conquest, battles, or killing, and it fits the player's request for a non-violent game."}
+{"id": "P095", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 5. It is competitive."}
+{"id": "P096", "pick": "D", "explanation": "good: 2 players fit the card's range 2 to 4. Complexity: light (weight 1.98)."}
+{"id": "P097", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 2 to 5, which does not include 6."}
+{"id": "P098", "pick": "E", "explanation": "mixed: The description does not explicitly state that the rules are complex or that the game is for experienced players, which is needed to confirm it as a heavy game."}
+{"id": "P099", "pick": null, "explanation": "No game is a good or mixed fit. Its card has the tag for player elimination."}
+{"id": "P100", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 3 to 8, which does not include 2."}
+{"id": "P101", "pick": "B", "explanation": "good: The game does not involve any combat or attacking, as players build independently and collaboratively without battling other characters or creatures."}
+{"id": "P102", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 4. Longest play time 60 minutes is within 60. Complexity: the card says medium (weight 3.30)."}
+{"id": "P103", "pick": "C", "explanation": "good: 2 players fit the description's 1 to 4. Longest play time 40 minutes is within 90."}
+{"id": "P104", "pick": "E", "explanation": "good: 10 players fit the card's range 2 to 10. Longest play time 40 minutes is within 60. Complexity: light (weight 1.25)."}
+{"id": "P105", "pick": "E", "explanation": "mixed: The description suggests deep strategy and complexity through its mechanics and gameplay, but it does not explicitly state that the rules are complex or that it is for experienced players."}
+{"id": "P106", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: not light (weight 2.51)."}
+{"id": "P107", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 1 to 4, which does not include 5."}
+{"id": "P108", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 1 to 1, which does not include 2."}
+{"id": "P109", "pick": "A", "explanation": "good: 10 players fit the card's range 3 to 10. Longest play time 15 minutes is within 45. Complexity: light (weight 1.00)."}
+{"id": "P110", "pick": "B", "explanation": "good: 1 players fit the card's range 1 to 4. Longest play time 45 minutes is within 120. It is cooperative."}
+{"id": "P111", "pick": "C", "explanation": "good: 2 players fit the card's range 2 to 2. Complexity: light (weight 1.18)."}
+{"id": "P112", "pick": "E", "explanation": "good: 6 players fit the card's range 2 to 8. Complexity: the card says medium (weight 3.10)."}
+{"id": "P113", "pick": "E", "explanation": "good: 3 players fit the card's range 1 to 4. It is cooperative. Complexity: the card says medium (weight 3.09)."}
+{"id": "P114", "pick": "D", "explanation": "good: 4 players fit the card's range 2 to 8. Longest play time 120 minutes is within 120. Complexity: the card says medium (weight 2.67)."}
+{"id": "P115", "pick": "B", "explanation": "good: The game meets all the specified points, as it is a solo game without any combat or battling mechanics."}
+{"id": "P116", "pick": "C", "explanation": "good: 2 players fit the card's range 1 to 4. It is cooperative. Complexity: light (weight 1.20)."}
+{"id": "P117", "pick": "A", "explanation": "good: 3 players fit the card's range 2 to 6. Complexity: light (weight 1.00)."}
+{"id": "P118", "pick": null, "explanation": "No game is a good or mixed fit. Players: the card says 2 to 4, which does not include 8."}
+{"id": "P119", "pick": "E", "explanation": "good: 1 players fit the card's range 1 to 5. Complexity: the card says medium (weight 2.97)."}
+{"id": "P120", "pick": "D", "explanation": "good: 1 players fit the card's range 1 to 6. Longest play time 60 minutes is within 60. Complexity: light (weight 1.50)."}
+{"id": "P121", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 6. Longest play time 5 minutes is within 60. Complexity: light (weight 1.00)."}
+{"id": "P122", "pick": "A", "explanation": "good: Longest play time 15 minutes is within 30. Complexity: light (weight 1.00)."}
+{"id": "P123", "pick": "C", "explanation": "good: 4 players fit the card's range 4 to 4. It is competitive."}
+{"id": "P124", "pick": "A", "explanation": "good: 4 players fit the card's range 1 to 4. Longest play time 60 minutes is within 60."}
+{"id": "P125", "pick": "B", "explanation": "mixed: While the game does not explicitly state that players can be knocked out, the description does not confirm that players remain active throughout the game, which is a concern based on the person's request."}
+{"id": "P126", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 6. Complexity: light (weight 1.17)."}
+{"id": "P127", "pick": "E", "explanation": "good: 2 players fit the card's range 2 to 99. It is cooperative."}
+{"id": "P128", "pick": "B", "explanation": "good: It is competitive. Complexity: light (weight 1.19)."}
+{"id": "P129", "pick": null, "explanation": "No game is a good or mixed fit. Its card has the tag for player elimination."}
+{"id": "P130", "pick": "E", "explanation": "good: 3 players fit the card's range 2 to 5. Longest play time 60 minutes is within 180. Complexity: the card says medium (weight 2.78)."}
+{"id": "P131", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.05)."}
+{"id": "P132", "pick": "C", "explanation": "mixed: While the game meets the requirements for player count, playtime, and complexity, the description does not explicitly state whether players can be knocked out, leaving uncertainty about this aspect."}
+{"id": "P133", "pick": "B", "explanation": "mixed: While the game is cooperative and fits the player count, the description implies simultaneous action selection, which may suggest a fast-paced play style that could be interpreted as racing against the clock."}
+{"id": "P134", "pick": "B", "explanation": "good: 5 players fit the card's range 1 to 5. It is competitive. Complexity: the card says medium (weight 2.55)."}
+{"id": "P135", "pick": "A", "explanation": "good: 2 players fit the card's range 1 to 4. Complexity: the card says medium (weight 2.33)."}
+{"id": "P136", "pick": "C", "explanation": "good: 4 players fit the card's range 1 to 6. Longest play time 30 minutes is within 40. Complexity: light (weight 1.57)."}
+{"id": "P137", "pick": "B", "explanation": "good: 2 players fit the card's range 1 to 4. Longest play time 120 minutes is within 120. It is competitive. Complexity: the card says medium (weight 3.00)."}
+{"id": "P138", "pick": "C", "explanation": "mixed: While the game meets the requirements for player count and playtime, the description implies a competitive nature with the objective of surrounding the opponent's queen, which could suggest conflict."}
+{"id": "P139", "pick": "A", "explanation": "good: 3 players fit the card's range 2 to 4. It is competitive."}
+{"id": "P140", "pick": "D", "explanation": "mixed: While the game mentions 'slightly simplified rules' and does not explicitly state combat, the description includes elements like 'Largest Army' which may imply combat mechanics, conflicting with the request to skip anything with combat."}
+{"id": "P141", "pick": "D", "explanation": "mixed: While the game does not explicitly state that players can be knocked out, the description involves military conflict and potential player elimination through surprise actions, which could imply that players might be sidelined during the game."}
+{"id": "P142", "pick": "B", "explanation": "good: 2 players fit the card's range 2 to 6. Longest play time 30 minutes is within 90. It is competitive. Complexity: light (weight 1.21)."}
+{"id": "P143", "pick": "E", "explanation": "good: 4 players fit the card's range 1 to 4. It is cooperative. Complexity: heavy (weight 3.66)."}
+{"id": "P144", "pick": "D", "explanation": "good: 2 players fit the card's range 2 to 5. The described play time of 7 minutes is within 60. Complexity: light (weight 1.20)."}
+{"id": "P145", "pick": null, "explanation": "No game is a good or mixed fit. Complexity: light, not medium (weight 1.73)."}
+{"id": "P146", "pick": "E", "explanation": "good: 4 players fit the card's range 2 to 5. Longest play time 90 minutes is within 180. It is cooperative. Complexity: the card says medium (weight 2.67)."}
+{"id": "P147", "pick": "A", "explanation": "good: The game does not involve any combat or attacking, and all other points are satisfied based on the provided description."}
+{"id": "P148", "pick": "D", "explanation": "good: 3 players fit the card's range 3 to 4. Complexity: light (weight 1.94)."}
+{"id": "P149", "pick": "C", "explanation": "mixed: While the game does not explicitly mention combat or attacking, the description focuses on competition in the auto industry, which may imply aggressive market strategies that could be interpreted as combative in nature."}
+{"id": "P150", "pick": "C", "explanation": "mixed: While the game accommodates 2 to 6 players and does not explicitly mention players being knocked out, the description implies a competitive nature with elements of betrayal and conflict, which may suggest the possibility of players being sidelined."}

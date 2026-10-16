@@ -491,6 +491,19 @@ def build_judge_prompt(inp: DescriptionCheckInput) -> str:
     )
 
 
+# Points where only the description can show the problem (the card has no tag for it). On the 150 public requests
+# the model rated these "poor" wrongly 8 times out of 9 for fighting, horror and timer, so for those three the
+# description alone can lower a game to "mixed" at most. A tag on the card still rules a game out in check_card.
+SOFT_POINTS = {"no_fighting", "no_horror", "no_timer"}
+
+
+def soften(verdict: Verdict, to_read: list[str]) -> Verdict:
+    """Turn a description-only "poor" on a fighting, horror or timer point into "mixed"."""
+    if verdict.rating == "poor" and SOFT_POINTS & set(to_read):
+        return Verdict(rating="mixed", explanation=f"Only the description suggests a problem: {verdict.explanation}")
+    return verdict
+
+
 @step
 def rate_description(inp: DescriptionCheckInput) -> Verdict:
     try:
@@ -543,14 +556,17 @@ def answer(request: Request) -> Answer:
         elif not card.to_read:  # the card confirms everything: nothing left for the model to read
             verdict = Verdict(rating="good", explanation=" ".join(card.passed) or "No requirement to check.")
         else:
-            verdict = rate_description(
-                DescriptionCheckInput(
-                    requirements=requirements,
-                    request_text=request.request,
-                    candidate=game,
-                    passed=card.passed,
-                    to_read=card.to_read,
-                )
+            verdict = soften(
+                rate_description(
+                    DescriptionCheckInput(
+                        requirements=requirements,
+                        request_text=request.request,
+                        candidate=game,
+                        passed=card.passed,
+                        to_read=card.to_read,
+                    )
+                ),
+                card.to_read,
             )
         verdicts.append(CandidateVerdict(candidate_id=game.id, verdict=verdict))
 

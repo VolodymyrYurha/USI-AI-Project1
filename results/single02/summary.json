@@ -1,0 +1,20 @@
+{
+  "system": "systems/single.py",
+  "starter_version": "2026-10-05.2",
+  "backend": "course",
+  "model": null,
+  "variant": "single",
+  "max_calls": 1,
+  "requests_file": "data/public.jsonl",
+  "requests": 150,
+  "errors": 0,
+  "declined": 24,
+  "model_calls": {
+    "total": 150,
+    "max_per_request": 1
+  },
+  "cost_usd": 0.0258,
+  "seconds": 42.4,
+  "overrides": [],
+  "steps": {}
+}
